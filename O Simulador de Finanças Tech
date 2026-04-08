@@ -1,0 +1,69 @@
+programa
+{
+	funcao inicio()
+	{
+		// Declaração de variáveis
+		cadeia nome
+		real saldo_atual, valor_setup, saldo_restante, faltante
+		inteiro opcao
+
+		// 1. Entrada: Perguntar o nome e saldo
+		escreva("Fala, dev! Qual o seu nome? ")
+		leia(nome)
+		escreva("Qual o seu saldo atual no banco? R$ ")
+		leia(saldo_atual)
+
+		// 2. Interação: Valor do setup
+		escreva("Quanto você deseja gastar no novo setup? R$ ")
+		leia(valor_setup)
+
+		// 3. Processamento
+		saldo_restante = saldo_atual - valor_setup
+
+		// 4. Decisão Crítica
+		se (saldo_restante < 0) 
+		{
+			faltante = valor_setup - saldo_atual
+			escreva("\n", nome, ", compra negada! Saldo insuficiente. Faltam R$ ", faltante, " para completar.")
+		}
+		senao 
+		{
+			escreva("\nCompra aprovada! Seu novo saldo é R$ ", saldo_restante)
+
+			// 5. Classificação de Saúde Financeira
+			se (saldo_restante > 1000) 
+			{
+				escreva("\nStatus: Rico! 🤑")
+			}
+			senao se (saldo_restante >= 1 e saldo_restante <= 999) 
+			{
+				escreva("\nStatus: Tá pago! Mas economize. 💸")
+			}
+			senao 
+			{
+				escreva("\nStatus: No limite! ⚠️")
+			}
+		}
+
+		// 6. Menu Final
+		escreva("\n\n---------------------------")
+		escreva("\n1 - Ver extrato completo")
+		escreva("\n2 - Sair do App")
+		escreva("\nEscolha o próximo passo: ")
+		leia(opcao)
+
+		se (opcao == 1) 
+		{
+			escreva("\n--- EXTRATO COMPLETO ---")
+			escreva("\nCliente: ", nome)
+			escreva("\nSaldo Anterior: R$ ", saldo_atual)
+			escreva("\nValor da Compra: R$ ", valor_setup)
+			escreva("\nSaldo Final: R$ ", saldo_restante)
+			escreva("\n------------------------")
+		}
+		senao 
+		{
+			escreva("\nSaindo... Até a próxima, ", nome, "!")
+		}
+	}
+}
