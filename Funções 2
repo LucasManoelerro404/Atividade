@@ -1,0 +1,46 @@
+programa
+{
+	funcao inicio()
+	{
+		real n1, n2, resultado
+		caracter operacao
+
+		escreva("Digite a operação (Ex: 5 + 5): ")
+		// O Portugol permite ler as variáveis em sequência
+		leia(n1)
+		leia(operacao)
+		leia(n2)
+
+		escolha (operacao)
+		{
+			caso '+':
+				resultado = somar(n1, n2)
+				escreva("Resultado: ", n1, " + ", n2, " = ", resultado)
+				pare
+			caso '-':
+				resultado = subtrair(n1, n2)
+				escreva("Resultado: ", n1, " - ", n2, " = ", resultado)
+				pare
+			caso '*':
+				resultado = multiplicar(n1, n2)
+				escreva("Resultado: ", n1, " * ", n2, " = ", resultado)
+				pare
+			caso '/':
+				// Mantendo a correção para o erro visto na imagem 134144.jpg
+				se (n2 != 0.0) { 
+					resultado = dividir(n1, n2)
+					escreva("Resultado: ", n1, " / ", n2, " = ", resultado)
+				} senao {
+					escreva("Erro: Divisão por zero!")
+				}
+				pare
+			caso contrario:
+				escreva("Operação inválida!")
+		}
+	}
+
+	funcao real somar(real a, real b) { retorne a + b }
+	funcao real subtrair(real a, real b) { retorne a - b }
+	funcao real multiplicar(real a, real b) { retorne a * b }
+	funcao real dividir(real a, real b) { retorne a / b }
+}
